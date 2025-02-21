@@ -333,7 +333,7 @@ function lovr.physics.newWeldJoint(colliderA, colliderB) end
 
 ---Creates a new physics World.
 ---
----@param settings? {tags: table, staticTags: table, maxColliders: number, threadSafe: boolean, allowSleep: boolean, stabilization: number, maxPenetration: number, restitutionThreshold: number, velocitySteps: number, positionSteps: number} An optional table with settings for the physics simulation.
+---@param settings? {tags: table, staticTags: table, maxColliders: number, threadSafe: boolean, allowSleep: boolean, stabilization: number, maxOverlap: number, restitutionThreshold: number, velocitySteps: number, positionSteps: number} An optional table with settings for the physics simulation.
 ---@return World world A whole new World.
 function lovr.physics.newWorld(settings) end
 

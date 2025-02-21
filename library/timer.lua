@@ -10,7 +10,7 @@ lovr.timer = {}
 ---@return number delta The average delta, in seconds.
 function lovr.timer.getAverageDelta() end
 
----Returns the time between the last two frames.  This is the same value as the `dt` argument provided to `lovr.update`.
+---Returns the time between the last two frames.  This is the same value as the `dt` argument provided to `lovr.update` when VR is disabled.  When VR is enabled, the `dt` will instead be `lovr.headset.getDeltaTime`.
 ---
 ---#### Notes:
 ---
