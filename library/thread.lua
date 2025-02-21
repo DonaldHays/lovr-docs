@@ -154,8 +154,8 @@ function Thread:isRunning() end
 ---end
 ---```
 ---
----@param ...arguments any Up to 4 arguments to pass to the Thread's function.
-function Thread:start(...arguments) end
+---@param ... any Up to 4 arguments to pass to the Thread's function.
+function Thread:start(...) end
 
 ---Waits for the Thread to complete, then returns.
 ---

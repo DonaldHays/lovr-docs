@@ -1083,7 +1083,7 @@ function lovr.graphics.getDevice() end
 
 ---Returns a table indicating which features are supported by the GPU.
 ---
----@return table features 
+---@return table features
 function lovr.graphics.getFeatures() end
 
 ---Returns limits of the current GPU.
@@ -1255,7 +1255,7 @@ function lovr.graphics.getFeatures() end
 ---
 ---Note: in the table above, `*` means that LÖVR itself is imposing a cap on the limit, instead of the GPU.
 ---
----@return table limits 
+---@return table limits
 function lovr.graphics.getLimits() end
 
 ---Creates and returns a temporary Pass object.
@@ -1346,10 +1346,10 @@ function lovr.graphics.getWindowPass() end
 ---Returns the type of operations the GPU supports for a texture format, if any.
 ---
 ---@param format TextureFormat The texture format to query.
----@param ...features TextureFeature Zero or more features to check.  If no features are given, this function will return whether the GPU supports *any* feature for this format.  Otherwise, this function will only return true if *all* of the input features are supported.
+---@param ... TextureFeature Zero or more features to check.  If no features are given, this function will return whether the GPU supports *any* feature for this format.  Otherwise, this function will only return true if *all* of the input features are supported.
 ---@return boolean linear Whether the GPU supports these operations for textures with this format, when created with the `linear` flag set to `true`.
 ---@return boolean srgb Whether the GPU supports these operations for textures with this format, when created with the `linear` flag set to `false`.
-function lovr.graphics.isFormatSupported(format, ...features) end
+function lovr.graphics.isFormatSupported(format, ...) end
 
 ---Returns whether timing stats are enabled.  When enabled, `Pass:getStats` will return `submitTime` and `gpuTime` durations.  Timing is enabled by default when `t.graphics.debug` is set in `lovr.conf`.  Timing has a small amount of overhead, so it should only be enabled when needed.
 ---
@@ -2799,9 +2799,9 @@ function lovr.graphics.newModel(modelData, options) end
 ---- It's possible to render to a specific mipmap level of a Texture, or a subset of its layers, by
 ---  rendering to texture views, see `lovr.graphics.newTextureView`.
 ---
----@param ...textures Texture One or more textures the pass will render to.  This can be changed later using `Pass:setCanvas`.
+---@param ... Texture One or more textures the pass will render to.  This can be changed later using `Pass:setCanvas`.
 ---@return Pass pass The new Pass.
-function lovr.graphics.newPass(...textures) end
+function lovr.graphics.newPass(...) end
 
 ---Creates and returns a new Pass object.  The canvas (the set of textures the Pass renders to) can be specified when creating the Pass, or later using `Pass:setCanvas`.
 ---
@@ -3552,8 +3552,8 @@ function Buffer:setData(table, destinationIndex, sourceIndex, count) end
 ---end
 ---```
 ---
----@param ...numbers number Numerical components to copy to the buffer.
-function Buffer:setData(...numbers) end
+---@param ... number Numerical components to copy to the buffer.
+function Buffer:setData(...) end
 
 ---Copies data to the Buffer from either a table, `Blob`, or `Buffer`.
 ---
@@ -6626,8 +6626,8 @@ function Pass:setBlendMode(index) end
 ---      return vec4(1, 0, 0, 1);
 ---    }
 ---
----@param ...textures Texture One or more color textures the pass will render to.
-function Pass:setCanvas(...textures) end
+---@param ... Texture One or more color textures the pass will render to.
+function Pass:setCanvas(...) end
 
 ---Sets the Pass's canvas.  The canvas is a set of textures that the Pass will draw to when it's submitted, along with configuration for the depth buffer and antialiasing.
 ---
@@ -8233,7 +8233,21 @@ function Texture:newReadback(x, y, layer, mipmap, width, height) end
 ---@param width? number The width of the region of pixels to copy.  If nil, the maximum possible width will be used, based on the widths of the source/destination and the offset parameters.
 ---@param height? number The height of the region of pixels to copy.  If nil, the maximum possible height will be used, based on the heights of the source/destination and the offset parameters.
 ---@param layers? number The number of layers to copy.  If nil, copies as many layers as possible.
-function Texture:setPixels(image, dstx, dsty, dstlayer, dstmipmap, srcx, srcy, srclayer, srcmipmap, width, height, layers) end
+function Texture:setPixels(
+	image,
+	dstx,
+	dsty,
+	dstlayer,
+	dstmipmap,
+	srcx,
+	srcy,
+	srclayer,
+	srcmipmap,
+	width,
+	height,
+	layers
+)
+end
 
 ---Sets pixels in the texture.  The source data can be an `Image` with the pixels to upload, or another `Texture` object to copy from.
 ---
@@ -8269,7 +8283,25 @@ function Texture:setPixels(image, dstx, dsty, dstlayer, dstmipmap, srcx, srcy, s
 ---@param srcheight? number The height of the region in the source texture to copy.  If it doesn't match `height`, the copy will be scaled up or down to fit.
 ---@param srcdepth? number The depth of the region in the source texture to copy (`3d` textures only).
 ---@param filter? FilterMode The filtering mode used to scale the copy when the source and destination sizes don't match.
-function Texture:setPixels(texture, dstx, dsty, dstlayer, dstmipmap, srcx, srcy, srclayer, srcmipmap, width, height, layers, srcwidth, srcheight, srcdepth, filter) end
+function Texture:setPixels(
+	texture,
+	dstx,
+	dsty,
+	dstlayer,
+	dstmipmap,
+	srcx,
+	srcy,
+	srclayer,
+	srcmipmap,
+	width,
+	height,
+	layers,
+	srcwidth,
+	srcheight,
+	srcdepth,
+	filter
+)
+end
 
 ---Sets sampler settings for the texture.  This can either be a `FilterMode` like `nearest`, or a `Sampler` object, which allows configuring all of the filtering and wrapping settings.
 ---

@@ -188,7 +188,7 @@ function lovr.headset.getDriver() end
 
 ---Returns a table of features that are supported by the current headset runtime.
 ---
----@return table features 
+---@return table features
 function lovr.headset.getFeatures() end
 
 ---Returns the current foveation settings, previously set by `lovr.headset.setFoveation`.'
@@ -698,6 +698,11 @@ function lovr.headset.getViewCount() end
 ---@return number az The z component of the axis of rotation.
 function lovr.headset.getViewPose(view) end
 
+---Returns whether a headset session is active.  When true, there is an active connection to the VR hardware.  When false, most headset methods will not work properly until `lovr.headset.start` is used to start a session.
+---
+---@return boolean active Whether the headset session is active.
+function lovr.headset.isActive() end
+
 ---Returns whether a button on a device is pressed.
 ---
 ---#### Notes:
@@ -882,8 +887,8 @@ function lovr.headset.setFoveation() end
 ---
 ---There is currently a maximum of 10 layers.
 ---
----@param ...layers Layer Zero or more layers to render in the headset.
-function lovr.headset.setLayers(...layers) end
+---@param ... Layer Zero or more layers to render in the headset.
+function lovr.headset.setLayers(...) end
 
 ---Sets the list of active `Layer` objects.  These are the layers that will be rendered in the headset's display.  They are rendered in order.
 ---
@@ -944,6 +949,18 @@ function lovr.headset.setRefreshRate(rate) end
 ---Starts the headset session.  This must be called after the graphics module is initialized, and can only be called once.  Normally it is called automatically by `boot.lua`.
 ---
 function lovr.headset.start() end
+
+---Stops the headset session.  This tears down the connection to the VR runtime and hardware. `lovr.draw` will instead start rendering to the desktop window, as though the headset module was disabled.  However, certain information about the headset can still be queried, such as its name, supported passthrough modes, display size, etc.  A headset session can be started later using `lovr.headset.start`.
+---
+---#### Notes:
+---
+---The headset module behaves in the following manner when there is no headset session:
+---
+---- `lovr.headset.isActive` returns `false`.
+---- `lovr.headset.getPass` returns `nil`.
+---- All devices will be untracked.
+---
+function lovr.headset.stop() end
 
 ---Causes the device to stop any active haptics vibration.
 ---

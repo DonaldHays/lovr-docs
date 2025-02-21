@@ -116,7 +116,7 @@ function lovr.system.isWindowVisible() end
 ---@param options {width: number, height: number, fullscreen: boolean, resizable: boolean, title: string, icon: string} Window options.
 function lovr.system.openWindow(options) end
 
----Fills the event queue with unprocessed events from the operating system.  This function should be called often, otherwise the operating system will consider the application unresponsive. This function is called in the default implementation of `lovr.run`.
+---Fills the event queue with unprocessed events from the operating system.  This function should be called often, otherwise the operating system will consider the application unresponsive. This function is called in the default implementation of `lovr.run`, and the events are later processed by `lovr.event.poll`.
 ---
 function lovr.system.pollEvents() end
 
