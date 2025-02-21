@@ -1133,7 +1133,7 @@ function Layer:setColor(r, g, b, a) end
 ---
 ---Not every headset system supports layer colors.  See the `layerColor` property of `lovr.headset.getFeatures` to check for support.
 ---
----@param t table nil
+---@param t table A table of 3 or 4 color components.
 function Layer:setColor(t) end
 
 ---Sets the color of the layer.  This will tint the contents of its texture.  It can be used to fade the layer without re-rendering its texture, which is especially useful for layers created with the `static` option.

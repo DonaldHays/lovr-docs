@@ -6771,7 +6771,7 @@ function Pass:setColor(r, g, b, a) end
 ---
 ---The default color is `(1, 1, 1, 1)`.
 ---
----@param t table nil
+---@param t table A table of 3 or 4 color components.
 function Pass:setColor(t) end
 
 ---Sets the color used for drawing.  Color components are from 0 to 1.
