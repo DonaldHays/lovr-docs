@@ -1339,7 +1339,7 @@ function Collider:setInertia(dx, dy, dz, angle, ax, ay, az) end
 ---@param rotation Quat The inertia rotation.
 function Collider:setInertia(diagonal, rotation) end
 
----Sets whether the Collider is kinematic.',
+---Sets whether the Collider is kinematic.
 ---
 ---Kinematic colliders behave like they have infinite mass.  They ignore forces applied to them from gravity, joints, and collisions, but they can still move if given a velocity.  Kinematic colliders don't collide with other kinematic colliders.  They're useful for static environment objects in a level, or for objects that have their position managed outside of the physics system like tracked hands.
 ---
@@ -1586,7 +1586,7 @@ function ConeJoint:getAxis() end
 ---@return number limit The angle limit, in radians.
 function ConeJoint:getLimit() end
 
----Returns the angle limit of the ConeJoint.  The relative angle between the ConeJoint's axis and the second Collider will be constrained to this limit.
+---Sets the angle limit of the ConeJoint.  The relative angle between the ConeJoint's axis and the second Collider will be constrained to this limit.
 ---
 ---#### Notes:
 ---
