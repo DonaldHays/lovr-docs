@@ -1703,7 +1703,19 @@ function Contact:setSurfaceVelocity(x, y, z) end
 ---@param velocity Vec3 The surface velocity.
 function Contact:setSurfaceVelocity(velocity) end
 
----TODO
+---A type of `Shape` that is a convex hull of a collection of points, allowing for custom collision shapes.  It is similar to a `MeshShape`, but it is not required to be kinematic, and it will use the convex hull of the mesh instead of using the exact triangles of the object.
+---
+---Convex shapes can be created from a `Model`, `ModelData`, `Mesh`, or a table of point positions, just like `MeshShape`.
+---
+---Convex shapes can be cloned by passing in an existing ConvexShape to clone:
+---
+---    model = lovr.data.newModelData('rock.glb')
+---    parent = lovr.physics.newConvexShape(model)
+---    clone = lovr.physics.newConvexShape(parent, scale)
+---
+---The clone will reuse all of the data from the parent, which speeds things up a lot.
+---
+---Convex shapes can have a custom scale applied to their points, and clones can have a different scale than their parents.
 ---@class ConvexShape
 local ConvexShape = {}
 
