@@ -1722,7 +1722,7 @@ function ConvexShape:getFaceCount() end
 ---
 ---#### Notes:
 ---
----Currently, the point positions do not include the scale of the convex shape.
+---The point positions will be scaled by the ConvexShape's scale, see `ConvexShape:getScale`.
 ---
 ---@param index number The index of the point.
 ---@return number x The x coordinate.
