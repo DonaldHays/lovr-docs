@@ -1705,7 +1705,7 @@ function Contact:setSurfaceVelocity(velocity) end
 
 ---A type of `Shape` that is a convex hull of a collection of points, allowing for custom collision shapes.  It is similar to a `MeshShape`, but it is not required to be kinematic, and it will use the convex hull of the mesh instead of using the exact triangles of the object.
 ---
----Convex shapes can be created from a `Model`, `ModelData`, `Mesh`, or a table of point positions, just like `MeshShape`.
+---Convex shapes can be created from a `Model`, `ModelData`, `Mesh`, or a table of point positions, similar to `MeshShape`.
 ---
 ---Convex shapes can be cloned by passing in an existing ConvexShape to clone:
 ---
@@ -1715,7 +1715,7 @@ function Contact:setSurfaceVelocity(velocity) end
 ---
 ---The clone will reuse all of the data from the parent, which speeds things up a lot.
 ---
----Convex shapes can have a custom scale applied to their points, and clones can have a different scale than their parents.
+---Convex shapes can have a custom scale applied to their points, and clones can have their own scale.
 ---@class ConvexShape
 local ConvexShape = {}
 
