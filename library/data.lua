@@ -282,6 +282,105 @@ function Blob:getF32(offset, count) end
 ---@return number ... `count` 64-bit doubles.
 function Blob:getF64(offset, count) end
 
+---Writes 8-bit signed integers to the Blob.
+---
+---@param offset? number A non-negative byte offset to start writing at.
+---@param ... number Numbers to write to the blob as 8-bit signed integers (each taking up 1 byte, ranging from
+----127 to 128).
+function Blob:setI8(offset, ...) end
+
+---Writes 8-bit signed integers to the Blob.
+---
+---@param offset? number A non-negative byte offset to start writing at.
+---@param table number A table of numbers to write to the blob as 8-bit signed integers (each taking up 1 byte, ranging from -127 to 128).
+function Blob:setI8(offset, table) end
+
+---Writes 8-bit unsigned integers to the Blob.
+---
+---@param offset? number A non-negative byte offset to start writing at.
+---@param ... number Numbers to write to the blob as 8-bit unsigned integers (each taking up 1 byte, ranging from 0 to 255).
+function Blob:setU8(offset, ...) end
+
+---Writes 8-bit unsigned integers to the Blob.
+---
+---@param offset? number A non-negative byte offset to start writing at.
+---@param table number A table of numbers to write to the blob as 8-bit unsigned integers (each taking up 1 byte, ranging from 0 to 255).
+function Blob:setU8(offset, table) end
+
+---Writes 16-bit signed integers to the Blob.
+---
+---@param offset? number A non-negative byte offset to start writing at.
+---@param ... number Numbers to write to the blob as 16-bit signed integers (each taking up 2 bytes, ranging from
+----32768 to 32767).
+function Blob:setI16(offset, ...) end
+
+---Writes 16-bit signed integers to the Blob.
+---
+---@param offset? number A non-negative byte offset to start writing at.
+---@param table number A table of numbers to write to the blob as 16-bit signed integers (each taking up 2 bytes, ranging from -32768 to 32767).
+function Blob:setI16(offset, table) end
+
+---Writes 16-bit unsigned integers to the Blob.
+---
+---@param offset? number A non-negative byte offset to start writing at.
+---@param ... number Numbers to write to the blob as 16-bit unsigned integers (each taking up 2 bytes, ranging from 0 to 65535).
+function Blob:setU16(offset, ...) end
+
+---Writes 16-bit unsigned integers to the Blob.
+---
+---@param offset? number A non-negative byte offset to start writing at.
+---@param table number A table of numbers to write to the blob as 16-bit unsigned integers (each taking up 2 bytes, ranging from 0 to 65535).
+function Blob:setU16(offset, table) end
+
+---Writes 32-bit signed integers to the Blob.
+---
+---@param offset? number A non-negative byte offset to start writing at.
+---@param ... number Numbers to write to the blob as 32-bit signed integers (each taking up 4 bytes, ranging from
+----2147483648 to 2147483647).
+function Blob:setI32(offset, ...) end
+
+---Writes 32-bit signed integers to the Blob.
+---
+---@param offset? number A non-negative byte offset to start writing at.
+---@param table number A table of numbers to write to the blob as 32-bit signed integers (each taking up 4 bytes, ranging from -2147483648 to 2147483647).
+function Blob:setI32(offset, table) end
+
+---Writes 32-bit unsigned integers to the Blob.
+---
+---@param offset? number A non-negative byte offset to start writing at.
+---@param ... number Numbers to write to the blob as 32-bit unsigned integers (each taking up 4 bytes, ranging from 0 to 4294967296).
+function Blob:setU32(offset, ...) end
+
+---Writes 32-bit unsigned integers to the Blob.
+---
+---@param offset? number A non-negative byte offset to start writing at.
+---@param table number A table of numbers to write to the blob as 32-bit unsigned integers (each taking up 4 bytes, ranging from 0 to 4294967296).
+function Blob:setU32(offset, table) end
+
+---Writes 32-bit floating point numbers to the Blob.
+---
+---@param offset? number A non-negative byte offset to start writing at.
+---@param ... number Numbers to write to the blob as 32-bit floats (each taking up 4 bytes).
+function Blob:setF32(offset, ...) end
+
+---Writes 32-bit floating point numbers to the Blob.
+---
+---@param offset? number A non-negative byte offset to start writing at.
+---@param table number A table of numbers to write to the blob as 32-bit floats (each taking up 4 bytes).
+function Blob:setF32(offset, table) end
+
+---Writes 64-bit floating point numbers to the Blob.
+---
+---@param offset? number A non-negative byte offset to start writing at.
+---@param ... number Numbers to write to the blob as 64-bit floating point numbers (each taking up 8 bytes).
+function Blob:setF64(offset, ...) end
+
+---Writes 64-bit floating point numbers to the Blob.
+---
+---@param offset? number A non-negative byte offset to start writing at.
+---@param table number A table of numbers to write to the blob as 64-bit floating point numbers (each taking up 8 bytes).
+function Blob:setF64(offset, table) end
+
 ---An Image stores raw 2D pixel info for `Texture`s.  It has a width, height, and format.  The Image can be initialized with the contents of an image file or it can be created with uninitialized contents.  The supported image formats are `png`, `jpg`, `hdr`, `dds`, `ktx`, and `astc`.
 ---
 ---Usually you can just use Textures, but Image can be useful if you want to manipulate individual pixels, load Textures in a background thread, or use the FFI to efficiently access the raw image data.
