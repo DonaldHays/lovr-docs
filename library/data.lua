@@ -1696,6 +1696,8 @@ function Sound:setFrames(sound, count, dstOffset, srcOffset) end
 ---| "rg8"
 ---Four 8-bit channels.  4 bytes per pixel.
 ---| "rgba8"
+---Four 8-bit channels.  4 bytes per pixel.
+---| "bgra8"
 ---One 16-bit channel.  2 bytes per pixel.
 ---| "r16"
 ---Two 16-bit channels.  4 bytes per pixel.
