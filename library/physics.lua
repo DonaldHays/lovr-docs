@@ -3228,9 +3228,10 @@ function World:newTerrainCollider(scale, callback, samples) end
 ---@param ax number The x component of the axis of rotation.
 ---@param ay number The y component of the axis of rotation.
 ---@param az number The z component of the axis of rotation.
+---@param maxDistance? number The maximum distance at which a shape can be detected, in meters.  Zero will detect shapes touching the input shape, 1.0 will detect shapes within 1 meter of the input shape, etc.
 ---@param filter? string Tags to filter by, or nil for no filter.
 ---@param callback function The callback to call for each intersection detected.
-function World:overlapShape(shape, x, y, z, angle, ax, ay, az, filter, callback) end
+function World:overlapShape(shape, x, y, z, angle, ax, ay, az, maxDistance, filter, callback) end
 
 ---Places a shape in the World, returning any shapes it intersects.
 ---
@@ -3246,9 +3247,10 @@ function World:overlapShape(shape, x, y, z, angle, ax, ay, az, filter, callback)
 ---@param shape Shape The Shape to test.
 ---@param position Vec3 The position to place the shape at, in meters.
 ---@param orientation Quat The orientation of the shape.
+---@param maxDistance? number The maximum distance at which a shape can be detected, in meters.  Zero will detect shapes touching the input shape, 1.0 will detect shapes within 1 meter of the input shape, etc.
 ---@param filter? string Tags to filter by, or nil for no filter.
 ---@param callback function The callback to call for each intersection detected.
-function World:overlapShape(shape, position, orientation, filter, callback) end
+function World:overlapShape(shape, position, orientation, maxDistance, filter, callback) end
 
 ---Places a shape in the World, returning any shapes it intersects.
 ---
@@ -3269,6 +3271,7 @@ function World:overlapShape(shape, position, orientation, filter, callback) end
 ---@param ax number The x component of the axis of rotation.
 ---@param ay number The y component of the axis of rotation.
 ---@param az number The z component of the axis of rotation.
+---@param maxDistance? number The maximum distance at which a shape can be detected, in meters.  Zero will detect shapes touching the input shape, 1.0 will detect shapes within 1 meter of the input shape, etc.
 ---@param filter? string Tags to filter by, or nil for no filter.
 ---@return Collider collider The collider that was hit.
 ---@return Shape shape The shape that was hit.
@@ -3278,7 +3281,7 @@ function World:overlapShape(shape, position, orientation, filter, callback) end
 ---@return number nx The x component of the penetration vector.
 ---@return number ny The y component of the penetration vector.
 ---@return number nz The z component of the penetration vector.
-function World:overlapShape(shape, x, y, z, angle, ax, ay, az, filter) end
+function World:overlapShape(shape, x, y, z, angle, ax, ay, az, maxDistance, filter) end
 
 ---Places a shape in the World, returning any shapes it intersects.
 ---
@@ -3294,6 +3297,7 @@ function World:overlapShape(shape, x, y, z, angle, ax, ay, az, filter) end
 ---@param shape Shape The Shape to test.
 ---@param position Vec3 The position to place the shape at, in meters.
 ---@param orientation Quat The orientation of the shape.
+---@param maxDistance? number The maximum distance at which a shape can be detected, in meters.  Zero will detect shapes touching the input shape, 1.0 will detect shapes within 1 meter of the input shape, etc.
 ---@param filter? string Tags to filter by, or nil for no filter.
 ---@return Collider collider The collider that was hit.
 ---@return Shape shape The shape that was hit.
@@ -3303,7 +3307,7 @@ function World:overlapShape(shape, x, y, z, angle, ax, ay, az, filter) end
 ---@return number nx The x component of the penetration vector.
 ---@return number ny The y component of the penetration vector.
 ---@return number nz The z component of the penetration vector.
-function World:overlapShape(shape, position, orientation, filter) end
+function World:overlapShape(shape, position, orientation, maxDistance, filter) end
 
 ---Find colliders within an axis-aligned bounding box.  This is a fast but imprecise query that only checks a rough box around colliders.  Use `World:overlapShape` for an exact collision test.
 ---
